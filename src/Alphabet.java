@@ -20,7 +20,7 @@ public class Alphabet {
         alphabet.add('?');
         alphabet.add(' ');
 
-
+        System.out.println(alphabet);
             return alphabet;
 
 
