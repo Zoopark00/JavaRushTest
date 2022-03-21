@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Alphabet {
 
 
-    public ArrayList<Character> initAlphabet() {
+    public static ArrayList<Character> initAlphabet() {
         ArrayList<Character> alphabet = new ArrayList<>();
 
         for (char ch = 'А'; ch <= 'я'; ch++) {
