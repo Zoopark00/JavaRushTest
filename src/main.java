@@ -44,23 +44,23 @@ public class main {
             if (Files.exists(path)) {
                 sourcebln = false;
             } else {
-                System.out.println("Введите путь к файлу");
+                System.out.println("Файл не найден, введите правильный путь");
                 scanner1.next();
 
             }
         }
         Scanner scanner2 = new Scanner(System.in);
-        System.out.println("Введите шаг");
+        System.out.println("Введите ключ от -50 до 50");
         while (stepbln) {
             if (scanner2.hasNextInt()) {
                 step = scanner2.nextInt();
                 if (step < 51 && step > -51) {
                     stepbln= false;
                 } else {
-                    System.out.println("Введите шаг");
+                    System.out.println("Число не соответсвует условиям, Введите ключ");
                 }
             } else {
-                System.out.println("Введите шаг");
+                System.out.println("Число не соответсвует условиям, Введите ключ");
                 scanner2.next();
             }
         }
