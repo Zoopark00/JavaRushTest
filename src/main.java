@@ -60,7 +60,7 @@ public class main {
                     System.out.println("Число не соответсвует условиям, Введите ключ");
                 }
             } else {
-                System.out.println("Число не соответсвует условиям, Введите ключ");
+                System.out.println("Число не соответсвует условиям, Введите ключ  ");
                 scanner2.next();
             }
         }
