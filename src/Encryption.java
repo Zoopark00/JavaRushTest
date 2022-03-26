@@ -10,15 +10,15 @@ import java.util.*;
 
 public class Encryption {
 
-    //РњРµС‚РѕРґ РґР»СЏ С€РёС„СЂРѕРІР°РЅРёСЏ
+    //Метод для шифрования
     public static void encryption(Path src, int step, Path dist) {
-        //СЃРѕР·РґР°РµРј Р°Р»С„Р°РІРёС‚
+        //создаем алфавит
         ArrayList<Character> alphabet = Alphabet.initAlphabet();
         Path path = dist;
 
         List<String> list = new ArrayList<>();
 
-        //Р§РёС‚Р°РµРј СЃС‚СЂРѕРєРё РёР· С„Р°Р№Р»Р° РІ ArrayList
+        //Читаем строки из файла в ArrayList
         try {
             list = Files.readAllLines(src);
         } catch (IOException e) {
@@ -26,14 +26,14 @@ public class Encryption {
         }
 
 
-        //РџРµСЂРµРІРѕРґРёРј СЃС‚СЂРѕРєРё РёР· ArrayList РІ РјР°СЃСЃРёРІ С‡Р°СЂРѕРІ
+        //Переводим строки из ArrayList в массив чаров
         for (int i = 0; i < list.size(); i++) {
 
 
             char[] stringChar = list.get(i).toString().toCharArray();
             ArrayList<Character> stringArray = new ArrayList<>();
 
-            //РџРµСЂРµРІРѕРґРёРј РјР°СЃСЃРёРІ С‡Р°СЂРѕРІ РІ ArrayList
+            //Переводим массив чаров в ArrayList
             for (int j = 0; j < stringChar.length; j++) {
                 stringArray.add(stringChar[j]);
             }
@@ -41,14 +41,14 @@ public class Encryption {
                 for (int k = 0; k < stringArray.size(); k++) {
                     for (int j = 0; j < alphabet.size(); j++) {
 
-                        //РЎСЂР°РІРЅРёРІР°РµРј СЌР»РµРјРµРЅС‚С‹  РїРѕР»СѓС‡РµРЅРЅРѕРіРѕ ArrayList  СЃ СЌР»РµРјРµРЅС‚Р°РёРјРё Р°Р»С„Р°РІРёС‚Р°
+                        //Сравниваем элементы  полученного ArrayList  с элементаими алфавита
                         if (stringArray.get(k).equals(alphabet.get(j))) {
 
-                            //Р—Р°РјРµРЅСЏРµРј СЌР»РµРјРµРЅС‚С‹ ArrayList РЅР° СЌР»РµРјРµРЅС‚С‹ РёР· Р°Р»С„Р°РІРёС‚Р° РїРѕ С„РѕСЂРјСѓР»Рµ: РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р° РІ Р°Р»С„РѕРІРёС‚Рµ + РєР»СЋС‡ С€РёС„СЂРѕРІР°РЅРёСЏ
+                            //Заменяем элементы ArrayList на элементы из алфавита по формуле: номер элемента в алфовите + ключ шифрования
                             if ((j + step) >= 0 && (j + step) < alphabet.size()) {
                                 stringArray.set(k, alphabet.get(j + step));
                                 break;
-                                //РћР±СЂР°Р±Р°С‚С‹РІР°РµРј РїРµСЂРµРїРѕР»РЅРµРЅРёРµ ArrayList СЃ Р°Р»С„Р°РІРёС‚РѕРј
+                                //Обрабатываем переполнение ArrayList с алфавитом
                             } else if ((j + step) > alphabet.size()) {
                                 stringArray.set(k, alphabet.get((j + step) - alphabet.size()));
                                 break;
@@ -57,21 +57,21 @@ public class Encryption {
                         }
                     }
                 }
-                //РЎРєР»РµРёРІР°РµРј РёР·РјРµРЅРµРЅРЅС‹Р№ ArrayList СЃ С‡Р°СЂР°РјРё РІ СЃС‚СЂРѕРєСѓ
+                //Склеиваем измененный ArrayList с чарами в строку
                 StringBuilder sb = new StringBuilder();
                 for (Character s : stringArray) {
                     sb.append(s);
                 }
                 System.out.println(sb.toString());
 
-                //Р—Р°РїРёСЃС‹РІР°РµРј СЃС‚СЂРѕРєСѓ РІ С„Р°Р№Р»
+                //Записываем строку в файл
                 try {
                     Files.write(path, Collections.singleton(sb.toString()), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            //Р’СЃС‘ С‚Рѕ Р¶Рµ СЃР°РјРѕРµ С‚РѕР»СЊРєРѕ СЃ РѕР±СЂР°Р±РѕС‚РєРѕР№ РїРµСЂРµР»РѕР»РЅРµРЅРёСЏ ArrayList РїСЂРё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРј РєР»СЋС‡Рµ С€РёС„СЂРѕРІР°РЅРёСЏ
+            //Всё то же самое только с обработкой перелолнения ArrayList при отрицательном ключе шифрования
             if (step < 0) {
                 for (int k = 0; k < stringArray.size(); k++) {
                     for (int j = 0; j < alphabet.size(); j++) {
@@ -107,7 +107,7 @@ public class Encryption {
             }
         }
     }
-    // РњРµС‚РѕРґ РґР»СЏ СЂР°СЃС€РёС„СЂРѕРІРєРё (Р°РЅР°Р»РѕРіРёС‡РЅРѕ РјРµС‚РѕРґСѓ С€РёС„СЂРѕРІР°РЅСЏ)
+    // Метод для расшифровки (аналогично методу шифрованя)
     public static void decryption(Path src, int step, Path dist) {
 
         ArrayList<Character> alphabet = Alphabet.initAlphabet();

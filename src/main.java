@@ -57,7 +57,7 @@ public class main {
             }
             if (choice == 3){
                 BruteForce.bruteForce(path);
-                break;
+                System.exit(0);
             }
         }
         System.out.println("¬ведите путь к файлу, в который будем писать");
