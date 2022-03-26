@@ -7,11 +7,11 @@ public class Alphabet {
     public static ArrayList<Character> initAlphabet() {
         ArrayList<Character> alphabet = new ArrayList<>();
 
-        for (char ch = '–ê'; ch <= '—è'; ch++) {
+        for (char ch = '¿'; ch <= 'ˇ'; ch++) {
             alphabet.add(ch);
         }
-        alphabet.add('–Å');
-        alphabet.add('—ë');
+        alphabet.add('®');
+        alphabet.add('∏');
         alphabet.add(',');
         alphabet.add('.');
         alphabet.add('"');
@@ -20,7 +20,7 @@ public class Alphabet {
         alphabet.add('?');
         alphabet.add(' ');
 
-        System.out.println(alphabet);
+      //  System.out.println(alphabet);
             return alphabet;
 
 

@@ -1,19 +1,19 @@
 import java.util.HashSet;
 
 public class WordList {
-    //РЎРѕР·РґР°РµРј СЃРїРёСЃРѕРє СЃР»РѕРІ РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ
+    //Создаем список слов для сравнения
     public static HashSet<String> GetList(){
         HashSet<String> wordList = new HashSet<>();
-        wordList.add("РјРѕР№");
-        wordList.add("РѕРЅ");
-        wordList.add("РѕРЅР°");
-        wordList.add("С‡С‚Рѕ");
-        wordList.add("РіРґРµ");
-        wordList.add("РєРѕРіРґР°");
-        wordList.add("РёР»Рё");
-        wordList.add("РєС‚Рѕ");
-        wordList.add("РїСЂРёРІРµС‚");
-        wordList.add("СЃР»РѕРІРѕ");
+        wordList.add("мой");
+        wordList.add("дядя");
+        wordList.add("она");
+        wordList.add("что");
+        wordList.add("где");
+        wordList.add("когда");
+        wordList.add("или");
+        wordList.add("кто");
+        wordList.add("привет");
+        wordList.add("слово");
 
 
 

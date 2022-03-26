@@ -1,36 +1,56 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class BruteForce {
 
 
-    public static void bruteForce(Path src){
+    public static void bruteForce(Path src) {
         HashSet<String> wordList = WordList.GetList();
-        Path encrpt = Path.of("out.txt");
 
-        for (int i = -50; i <51 ; i++) {
-
-         Encryption.encryption(src, i);
-            List<String> list = new ArrayList<>();
-
-            //–ß–∏—Ç–∞–µ–º —Å—Ç—Ä–æ–∫–∏ –∏–∑ —Ñ–∞–π–ª–∞ –≤ ArrayList
+        for (int i = -30; i < 30; i++) {
+            boolean bln = false;
+            File f = null;
+            Path dist = null;
             try {
-                list = Files.readAllLines(encrpt);
+                f = File.createTempFile("tmp", ".txt", null);
+                dist = Path.of(f.getAbsolutePath());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //System.out.println(dist);
+
+            Encryption.decryption(src, i, dist);
+            List<String> list = new ArrayList<>();
+            try {
+                list = Files.readAllLines(dist);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            for (int j = 0; j < list.size(); j++) {
-                if(list.contains(wordList));
-                System.out.print("–ö–ª—é—á —à–∏—Ñ—Ä–æ–≤–∞–Ω–∏—è  = "+i);
-                break;
+            for (String s : list) {
+
+                for (String example : wordList) {
+                    if (s.toLowerCase().contains(example)) {
+                        System.out.println(" Î˛˜ ¯ËÓ‚‡ÌËˇ = " + i);
+                        System.out.println("Õ‡È‰ÂÌÌÓÂ ÒÎÓ‚Óe - " + example);
+                        bln = true;
+                        break;
+
+                    }
+                }
+                }
+                if (bln) {
+                    break;
+                }
+                try {
+                    f.deleteOnExit();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
-
         }
     }
-}

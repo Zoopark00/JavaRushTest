@@ -9,10 +9,12 @@ import java.util.*;
 
 
 public class Encryption {
-    public static void encryption(Path src, int step) {
+
+    //Метод для шифрования
+    public static void encryption(Path src, int step, Path dist) {
         //создаем алфавит
         ArrayList<Character> alphabet = Alphabet.initAlphabet();
-        Path path = Path.of("out.txt");
+        Path path = dist;
 
         List<String> list = new ArrayList<>();
 
@@ -39,10 +41,10 @@ public class Encryption {
                 for (int k = 0; k < stringArray.size(); k++) {
                     for (int j = 0; j < alphabet.size(); j++) {
 
-                        //Сравниваем элементы ArrayList из чаров полученных из стройки с элементаими алфавита
+                        //Сравниваем элементы  полученного ArrayList  с элементаими алфавита
                         if (stringArray.get(k).equals(alphabet.get(j))) {
 
-                            //Заменяем элементы ArrayList чаров на элементы из алфавита + ключ шифрования
+                            //Заменяем элементы ArrayList на элементы из алфавита по формуле: номер элемента в алфовите + ключ шифрования
                             if ((j + step) >= 0 && (j + step) < alphabet.size()) {
                                 stringArray.set(k, alphabet.get(j + step));
                                 break;
@@ -105,11 +107,11 @@ public class Encryption {
             }
         }
     }
-
-    public static void decryption(Path src, int step) {
+    // Метод для расшифровки (аналогично методу шифрованя)
+    public static void decryption(Path src, int step, Path dist) {
 
         ArrayList<Character> alphabet = Alphabet.initAlphabet();
-        Path path = Path.of("out.txt");
+        Path path = dist;
 
         List<String> list = new ArrayList<>();
         try {
@@ -149,7 +151,7 @@ public class Encryption {
                 for (Character s : stringArray) {
                     sb.append(s);
                 }
-                System.out.println(sb.toString());
+                //System.out.println(sb.toString());
                 try {
                     Files.write(path, Collections.singleton(sb.toString()), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
                 } catch (IOException e) {
@@ -180,7 +182,7 @@ public class Encryption {
                 for (Character s : stringArray) {
                     sb.append(s);
                 }
-                System.out.println(sb.toString());
+                //System.out.println(sb.toString());
                 try {
                     Files.write(path, Collections.singleton(sb.toString()), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
                 } catch (IOException e) {
