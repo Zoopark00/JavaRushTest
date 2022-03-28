@@ -74,7 +74,7 @@ public class main {
 
 
         Scanner scanner2 = new Scanner(System.in);
-        System.out.println("Введите ключ от -50 до 50");
+        System.out.println("Введите ключ от -30 до 30");
         while (stepbln) {
             if (scanner2.hasNextInt()) {
                 step = scanner2.nextInt();
