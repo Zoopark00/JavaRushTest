@@ -13,9 +13,9 @@ public class main {
         boolean sourcebln = true;
         int step = 0;
         boolean stepbln = true;
-        String decrypt = "нажмите 1, чтобы зашифровать";
-        String encrypt = "нажмите 2, чтобы расшифровать";
-        String bruteForce = "Нажмите 3, чтобы взловать";
+        String decrypt = "РќР°Р¶РјРёС‚Рµ 1, С‡С‚РѕР±С‹ Р·Р°С€РёС„СЂРѕРІР°С‚СЊ С„Р°Р№Р»";
+        String encrypt = "РќР°Р¶РјРёС‚Рµ 2, С‡С‚РѕР±С‹ СЂР°СЃС€РёС„СЂРѕРІР°С‚СЊ С„Р°Р№Р»";
+        String bruteForce = "РЅР°Р¶РјРёС‚Рµ 3, С‡С‚РѕР±С‹ РІР·Р»РѕРјР°С‚СЊ С„Р°Р№Р»";
         String pathDist;
         Path dist = null;
         boolean distbln = true;
@@ -43,7 +43,7 @@ public class main {
                 scanner.next();
             }
         }
-        System.out.println("Введите путь к файлу");
+        System.out.println("Р’С‹Р±РёСЂР°РµРј С„Р°Р№Р» СЃ РёСЃС…РѕРґРЅС‹Рј С‚РµРєСЃС‚РѕРј");
         Scanner scanner1 = new Scanner(System.in);
         while (sourcebln) {
             source = scanner1.nextLine();
@@ -51,7 +51,7 @@ public class main {
             if (Files.exists(path)) {
                 sourcebln = false;
             } else {
-                System.out.println("Файл не найден, введите правильный путь");
+                System.out.println("РўР°РєРѕРіРѕ С„Р°Р№Р»Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·");
                 scanner1.next();
 
             }
@@ -60,7 +60,7 @@ public class main {
                 System.exit(0);
             }
         }
-        System.out.println("Введите путь к файлу, в который будем писать");
+        System.out.println("РЅР°РїРёС€РёС‚Рµ Р°РґСЂРµСЃ, РєСѓРґР° РїРѕР»РѕР¶РёРј РїРѕР»СѓС‡РёРІС€РёР№СЃСЏ С„Р°Р№Р»");
         Scanner scanner3 = new Scanner(System.in);
             pathDist = scanner3.nextLine();
             dist = Path.of(pathDist);
@@ -74,17 +74,17 @@ public class main {
 
 
         Scanner scanner2 = new Scanner(System.in);
-        System.out.println("Введите ключ от -30 до 30");
+        System.out.println("РЅР°РїРёС€РёС‚Рµ РєР»СЋС‡ С€РёС„СЂРѕРІР°РЅРёСЏ РѕС‚ -40 РґРѕ 40");
         while (stepbln) {
             if (scanner2.hasNextInt()) {
                 step = scanner2.nextInt();
-                if (step < 51 && step > -51) {
+                if (step < 41 && step > -42) {
                     stepbln= false;
                 } else {
-                    System.out.println("Число не соответсвует условиям, Введите ключ");
+                    System.out.println("РљР»СЋС‡ РЅРµ СЃРѕРѕС‚РІРµС‚СЃРІСѓРµС‚ СѓСЃР»РѕРІРёСЋ, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·");
                 }
             } else {
-                System.out.println("Число не соответсвует условиям, Введите ключ  ");
+                System.out.println("РљР»СЋС‡ РЅРµ СЃРѕРѕС‚РІРµС‚СЃРІСѓРµС‚ СѓСЃР»РѕРІРёСЋ, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р· ");
                 scanner2.next();
             }
         }

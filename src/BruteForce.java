@@ -6,16 +6,16 @@ import java.util.*;
 
 public class BruteForce {
 
-    //Подбор ключа
+    //РњРµС‚РѕРґ РґР»СЏ РїРѕРґР±РѕСЂР° РїР°СЂРѕР»СЏ
     public static void bruteForce(Path src) {
-        //Создаем список слов с которыми будем сравнивать
+        //РЎРѕР·РґР°РµРј РЅР°Р±РѕСЂ СЃР»РѕРІ РґР»СЏ РїСЂРѕРІРµСЂРєРё
         HashSet<String> wordList = WordList.GetList();
-        //цикл для перебора всего множеста ключей
-        for (int i = -30; i < 30; i++) {
+        //СЃРѕР·РґР°РµРј С†РёРєР» РґР»СЏ РїРµСЂРµР±РѕСЂР° РєР»СЋС‡РµР№
+        for (int i = -40; i < 41; i++) {
             boolean bln = false;
             File f = null;
             Path dist = null;
-            //Создаем временный файл, в который будем сохраняфть сдвиг на 1 шаг
+            //РЎРѕР·РґР°РµРј РІСЂРµРјРµРЅРЅС‹ С„Р°Р№Р» РґР»СЏ Р·Р°РїРёСЃРё РёС‚РѕРіРѕРІ СЃРґРІРёРіР° РЅР° 1 С€Р°Рі
             try {
                 f = File.createTempFile("tmp", ".txt", null);
                 dist = Path.of(f.getAbsolutePath());
@@ -25,7 +25,7 @@ public class BruteForce {
             }
             //System.out.println(dist);
 
-            //Применяем метод расшифровки со свигом на 1 шаг
+            //РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ РґРµС€РёС„СЂРѕРІРєРё СЃРѕ СЃРґРІРёРіРѕРј РЅР° 1 С€Р°Рі
             Encryption.decryption(src, i, dist);
             List<String> list = new ArrayList<>();
             try {
@@ -34,13 +34,13 @@ public class BruteForce {
                 e.printStackTrace();
             }
 
-            //читаем полученный файл и сравниваем слова в нем с проверочным набором слов
+            //РЎСЂР°РІРЅРёРІР°РµРј РїРѕР»СѓС‡РµРЅРЅС‹Р№ С„Р°Р№Р» СЃРѕ СЃРїРёСЃРѕРє РїСЂРѕРІРµСЂРѕС‡РЅС‹С… СЃР»РѕРІ
             for (String s : list) {
 
                 for (String example : wordList) {
                     if (s.toLowerCase().contains(example)) {
-                        System.out.println("Ключ ширования = " + i);
-                        System.out.println("Найденное словоe - " + example);
+                        System.out.println("РљР»СЋС‡ С€РёС„СЂРѕРІР°РЅРёСЏ= " + i);
+                        System.out.println("РќР°Р№РґРµРЅРЅРѕРµ СЃР»РѕРІРѕ - " + example);
                         bln = true;
                         break;
 
@@ -50,7 +50,7 @@ public class BruteForce {
                 if (bln) {
                     break;
                 }
-                //удаляем временный файл
+                //РЈРґРІР»СЏРµРј РІСЂРµРјРµРЅРЅС‹Р№ С„Р°Р№Р»
                 try {
                     f.deleteOnExit();
                 } catch (Exception e) {
