@@ -7,7 +7,7 @@ public class Alphabet {
     public static ArrayList<Character> initAlphabet() {
         ArrayList<Character> alphabet = new ArrayList<>();
 
-        for (char ch = 'а'; ch <= 'я'; ch++) {
+        for (char ch = 'А'; ch <= 'я'; ch++) {
             alphabet.add(ch);
         }
         alphabet.add('Ё');
