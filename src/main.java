@@ -74,11 +74,11 @@ public class main {
 
 
         Scanner scanner2 = new Scanner(System.in);
-        System.out.println("напишите ключ шифрования от -40 до 40");
+        System.out.println("напишите ключ шифрования от -50 до 50");
         while (stepbln) {
             if (scanner2.hasNextInt()) {
                 step = scanner2.nextInt();
-                if (step < 41 && step > -42) {
+                if (step < 51 && step > -51) {
                     stepbln= false;
                 } else {
                     System.out.println("Ключ не соответсвует условию, попробуйте еще раз");

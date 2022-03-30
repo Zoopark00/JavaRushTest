@@ -163,13 +163,13 @@ public class Encryption {
                     for (int j = 0; j < alphabet.size(); j++) {
 
                         if (stringArray.get(k).equals(alphabet.get(j))) {
-                           // if ((j - step) >= 0 && (j - step) < alphabet.size()) {
-                            if(j >= (-step)){
-                                stringArray.set(k, alphabet.get(j + step));
+                            if ((j - step) >= 0 && (j - step) < alphabet.size()) {
+                            //if(j >= (-step)){
+                                stringArray.set(k, alphabet.get(j - step));
                                 break;
 
                             } else if ((j - step) > alphabet.size()) {
-                                stringArray.set(k, alphabet.get(alphabet.size() + (j + step)));
+                                stringArray.set(k, alphabet.get( (j + (-step))- alphabet.size()));
                                 break;
 
                             }

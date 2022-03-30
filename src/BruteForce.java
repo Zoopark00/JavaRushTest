@@ -11,7 +11,7 @@ public class BruteForce {
         //Создаем набор слов для проверки
         HashSet<String> wordList = WordList.GetList();
         //создаем цикл для перебора ключей
-        for (int i = -40; i < 41; i++) {
+        for (int i = -50; i < 51; i++) {
             boolean bln = false;
             File f = null;
             Path dist = null;
